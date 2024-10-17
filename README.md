@@ -1,5 +1,7 @@
-#Local Time Display Project#
+#Local Time Display Project
+
 This is a simple web project that displays the user's local time dynamically using HTML, CSS, and JavaScript. The project demonstrates how to create a live clock that updates every second, with minimal design using CSS for layout and styling.
+
 Features:
 Live Time Update: The clock displays the user's local time, refreshing every second.
 Clean Design: The time is centered on the page with a dark background and an orange-themed clock for better visibility.
