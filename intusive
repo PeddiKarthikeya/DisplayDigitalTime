@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>🎈 Fun Time with Colorful Squares! 🎉</title>
+    <style>
+        /* Fun and Colorful Background with Horizontal Squares */
+        body {
+            background: repeating-linear-gradient(
+                90deg,
+                #ff6b6b,
+                #ff6b6b 50px,
+                #ffcc5c 50px,
+                #ffcc5c 100px,
+                #6dd5ed 100px,
+                #6dd5ed 150px,
+                #2193b0 150px,
+                #2193b0 200px
+            );
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            height: 100vh;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Floating Clouds */
+        .cloud {
+            position: absolute;
+            top: 10%;
+            width: 100px;
+            opacity: 0.8;
+            animation: floatClouds 20s linear infinite alternate;
+        }
+
+        @keyframes floatClouds {
+            from { transform: translateX(-150px); }
+            to { transform: translateX(100vw); }
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Fun Clock Design */
+        #clock {
+            font-size: 50px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b6b, #ffcc5c);
+            color: #000;
+            padding: 20px 40px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+            display: inline-block;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Funny Title */
+        h1 {
+            font-size: 40px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        /* Floating Balloons */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            animation: floatBalloon 6s linear infinite;
+        }
+
+        @keyframes floatBalloon {
+            0% { transform: translateY(0); opacity: 0; }
+            100% { transform: translateY(-120vh); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎈 Fun Time with Colorful Squares! 🎉</h1>
+        <div id="clock"></div>
+    </div>
+
+    <!-- Floating Balloons -->
+    <script>
+        function createBalloon() {
+            const balloon = document.createElement("div");
+            balloon.innerText = "🎈";
+            balloon.className = "balloon";
+            balloon.style.left = `${Math.random() * 100}%`;
+            balloon.style.fontSize = `${Math.random() * 50 + 30}px`;
+            balloon.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            document.body.appendChild(balloon);
+            setTimeout(() => balloon.remove(), 6000);
+        }
+
+        setInterval(createBalloon, 1000);
+    </script>
+
+    <!-- Clock Script -->
+    <script>
+        const clock = document.querySelector("#clock");
+        
+        function updateClock() {
+            let date = new Date();
+            clock.innerHTML = date.toLocaleTimeString();
+            
+            // Play a fun "tick-tock" sound effect
+            let audio = new Audio("https://www.fesliyanstudios.com/play-mp3/4389");
+            audio.play();
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html>
